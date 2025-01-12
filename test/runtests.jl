@@ -8,7 +8,7 @@ g(x) = sinpi(x)
   #@show quadgk(ConcertinaSinpi(f, -100:100), 0.1, 0.9, rtol=1e-3)
   Δ = 1e-14
   #@show quadgk(ConcertinaSinpi(x->exp(-(x-0.25)^2), -100:100), Δ, 1 - Δ, rtol=1e-6)
-  @testset "1/sin(x), Δ = $Δ" begin
+  @testset "sin(x)/sin(x), Δ = $Δ" begin
     for i in 1:100
       @test 2i ≈ quadgk(ConcertinaSinpi(sinpi, (-i, i)), Δ, 1 - Δ, rtol=1e-6)[1]
     end
