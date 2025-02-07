@@ -32,7 +32,7 @@ function (c::ConcertinaSinpi)(t)
   n = c.numerator(t)
   breaks = c.az[1]:c.az[2]
   output = zero(n)
-  sgn = sign(sinpi((breaks[1] + breaks[2]) / 2))
+  sgn = iseven(breaks[1]) ? 1 : - 1
   for i in 2:length(breaks)
     term = c.numerator(t + breaks[i-1])
     output += sgn * term
